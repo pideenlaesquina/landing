@@ -474,11 +474,6 @@ li > p {
   padding: 1rem 2rem;
   text-align: center;
 }
-.column {
-  float: left;
-  align-items: center;
-  padding: 4rem 2rem;
-}
 .left {
   width: 40%;
 }
@@ -486,6 +481,22 @@ li > p {
 .right {
   width: 60%;
 }
+@media screen and (max-width: 650px) {
+  .container{
+    flex-direction: column;
+  }
+  .left {
+    width: 100%;
+  }
+  .right {
+    width: 100%;
+  }
+}
+.column {
+  align-items: center;
+  padding: 4rem 2rem;
+}
+
 
 .description {
   text-align: center;
