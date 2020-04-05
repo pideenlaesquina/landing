@@ -1,78 +1,104 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Pide en la esquina - Domicilios directamente con tu tendero de confianza</title>
-    <meta name=”description” content="Ahora puedes hacer pedidos en tu tienda de la esquina desde tu celular. Seguiras siendo atendido por su dueño como si hubieras ido tu mismo.”>
-    <link rel=”canonical” href=”http://pideenlaesquina.com/” />
-    <meta name=”robots” content=”index, follow”>
 
-    <meta name="viewport" content="initial-scale=1.0">
-    <meta charset="utf-8">
-    <link rel="stylesheet" type="text/css" href="./default.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  </head>
-  <body>
-    <div class="container">
-      <div class="column left">
-        <img src="./images/desde-ventana.svg" alt="Dos vecinos hablando por la ventana" style="width:50%">
-        <h1>Que la cuarentena no te detenga</h1>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Pide en la esquina - Domicilios directamente con tu tendero de confianza</title>
+
+  <link rel="stylesheet" type="text/css" href="./default.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="canonical" href="http://pideenlaesquina.com/" />
+
+
+  <meta name="theme-color" content="#21bf73">
+  <meta name="description"
+    content="Ahora puedes hacer pedidos en tu tienda de la esquina desde tu celular. Seguirás siendo atendido por su dueño como si hubieras ido tu mismo." />
+  <meta name="robots" content="index, follow">
+
+  <!-- TWITTER -->
+  <meta name="twitter:title" content="PideEnLaEsquina.com">
+  <meta name="twitter:card" content="Domicilios directamente con tu tendero de confianza">
+  <meta name="twitter:url" content="http://pideenlaesquina.com/">
+  <!-- FB OPEN GRAPH -->
+  <meta property="og:title" content="PideEnLaEsquina.com">
+  <meta property="og:description" content="Domicilios directamente con tu tendero de confianza">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="http://pideenlaesquina.com/">
+  <meta property="og:site_name" content="PideEnLaEsquina.com">
+</head>
+
+<body>
+  <div class="container">
+    <div class="column left">
+      <img src="./images/desde-ventana.svg" alt="Dos vecinos hablando por la ventana" style="width:50%">
+      <h1>Que la cuarentena no te detenga</h1>
+      <ul style="list-style-type:none;">
+        <li>Ubica tu tienda de la esquina en el mapa</li>
+        <li>Haz tu pedido directamente con el dueño</li>
+      </ul>
+      <div class="card" style="padding:1rem; margin-top:2rem">
+        <p><strong>¿Conoces más tiendas? Ayúdanos</strong></p>
+        <p><a class="button"
+            href="https://docs.google.com/forms/d/e/1FAIpQLSewNJs_4wacAXbm-chQoNoWep5_lhT0Z9IEjzvxEs1UIS_38A/viewform"
+            target="_blank">Agregar tienda al catálogo</a></p>
         <ul style="list-style-type:none;">
-          <li>Ubica tu tienda de la esquina en el mapa</li>
-          <li>Haz tu pedido directamente con el dueño</li>
+          <li><small>Cualquiera puede agregar tiendas (cliente o dueño)</small></li>
+          <li><small>El catálogo se actualiza cada 24 horas</small></li>
+          <li><small>Este servicio es gratuito y siempre lo será</small></li>
         </ul>
-        <div class="card" style="padding:1rem; margin-top:2rem">
-          <p><strong>¿Conoces más tiendas? Ayúdanos</strong></p>
-          <p><a class="button" href="https://docs.google.com/forms/d/e/1FAIpQLSewNJs_4wacAXbm-chQoNoWep5_lhT0Z9IEjzvxEs1UIS_38A/viewform" target="_blank">Agregar tienda al catálogo</a></p>
-          <ul style="list-style-type:none;">
-            <li><small>Cualquiera puede agregar tiendas (cliente o dueño)</small></li>
-            <li><small>El catálogo se actualiza cada 24 horas</small></li>
-            <li><small>Este servicio es gratuito y siempre lo será</small></li>
-          </ul>
-          <p><small><a id="info" href="#">Quiero saber más</a></small></p>
-        </div>
+        <p><small><a id="info" href="#">Quiero saber más</a></small></p>
       </div>
-      <div class="column right card" id="map"></div>
+    </div>
+    <div class="column right card" id="map"></div>
+  </div>
+
+  <!-- The Info Modal -->
+  <div id="infoModal" class="modal">
+
+    <!-- Modal content -->
+    <div class="modal-content">
+      <span id="infoModalClose" class="modal-close">&times;</span>
+      <p>¡Hola a todos!</p>
+      <p>
+        Los tenderos continúan trabajando pese a las circunstancias que nos impone esta cuarentena. ¡Ellos nos necesitan
+        tanto como nosotros a ellos! Sus ventas se han visto impactadas negativamente por el aislamiento nacional que
+        vivimos, y pocos cuentan con las ayudas suficientes para sortear esta crisis.
+      </p>
+      <p>
+        Es por esto que decidimos generar una herramienta tecnológica que les permita adaptarse mejor a esta nueva
+        realidad, logrando que tú y los pequeños negocios de nuestras ciudades puedan contactarse con facilidad durante
+        esta cuarentena.
+      </p>
+      <p>Muchas gracias por hacer parte de esta iniciativa, si quieres apoyarnos agrega el catalogo las tiendas que
+        conozcas y compartir este link a tus conocidos y en tus redes. Entre todos podemos ayudarnos.</p>
+      <p>¡Saludos!</p>
     </div>
 
-    <!-- The Info Modal -->
-    <div id="infoModal" class="modal">
+  </div>
 
-      <!-- Modal content -->
-      <div class="modal-content">
-        <span id="infoModalClose"class="modal-close">&times;</span>
-        <p>¡Hola a todos!</p>
-        <p>
-          Los tenderos continúan trabajando pese a las circunstancias que nos impone esta cuarentena. ¡Ellos nos necesitan tanto como nosotros a ellos! Sus ventas se han visto impactadas negativamente por el aislamiento nacional que vivimos, y pocos cuentan con las ayudas suficientes para sortear esta crisis.
-        </p>
-        <p>
-          Es por esto que decidimos generar una herramienta tecnológica que les permita adaptarse mejor a esta nueva realidad, logrando que tú y los pequeños negocios de nuestras ciudades puedan contactarse con facilidad durante esta cuarentena.
-        </p>
-        <p>Muchas gracias por hacer parte de esta iniciativa, si quieres apoyarnos agrega el catalogo las tiendas que conozcas y compartir este link a tus conocidos y en tus redes. Entre todos podemos ayudarnos.</p>
-        <p>¡Saludos!</p>
-      </div>
+  <div id="contactModal" class="modal">
 
+    <!-- Modal content -->
+    <div class="modal-content">
+      <span id="contactModalClose" class="modal-close">&times;</span>
+      <form id="form-contact" action="#" method="post">
+        <label for="name">Nombre</label><br>
+        <input type="text" id="name" name="name"><br>
+        <label for="cellphone">Celular</label><br>
+        <input type="text" id="cellphone" name="cellphone"><br><br>
+        <label for="email">Correo electrónico</label><br>
+        <input type="email" id="email" name="email"><br><br>
+        <input type="submit" id="submit-contact" value="Submit">
+      </form>
     </div>
 
-    <div id="contactModal" class="modal">
+  </div>
 
-      <!-- Modal content -->
-      <div class="modal-content">
-        <span id="contactModalClose" class="modal-close">&times;</span>
-        <form id="form-contact" action="#" method="post">
-          <label for="name">Nombre</label><br>
-          <input type="text" id="name" name="name"><br>
-          <label for="cellphone">Celular</label><br>
-          <input type="text" id="cellphone" name="cellphone"><br><br>
-          <label for="email">Correo electrónico</label><br>
-          <input type="email" id="email" name="email"><br><br>
-          <input type="submit" id="submit-contact" value="Submit">
-        </form> 
-      </div>
-
-    </div>
-
-    <script src="map.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBt0ZCE1kAklBJiBnCYGX6kl0tglLcKlLI&callback=initMap"
+  <script src="map.js"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBt0ZCE1kAklBJiBnCYGX6kl0tglLcKlLI&callback=initMap"
     async defer></script>
-  </body>
+</body>
+
 </html>
