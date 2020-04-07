@@ -69,13 +69,24 @@ function addMarker(id,lat, lng, markerType, name, address, cellphone, phone, ace
       aceptsCreditCard: aceptsCreditCard
   });
 
+  if(marker.id=="user")
+  {
+    infoWindow.setContent(
+      '<div id="content">'+
+        '<h4 id="firstHeading" class="firstHeading">¡Arrastrame!</h4>'+
+        '<p>Arrastra este cursor para cargar las tiendas cercanas</p>'+
+      '</div>'
+    );
+    infoWindow.open(map, marker); 
+  }
+
   google.maps.event.addListener(marker, 'click', function() {
     if(marker.id != "user")
     {
       infoWindow.setContent(
         '<div id="content">'+
           '<h4 id="firstHeading" class="firstHeading">'+ marker.name +'</h4>'+
-          '<p>'+ marker.address +'<p>'+
+          '<p>'+ marker.address +'</p>'+
           (marker.aceptsCreditCard?'<p><i class="fa fa-credit-card"></i> Acepta tarjetas</p>':"")+
           '<div class="map-button-block">'+
             '<button class="map-button phone" type="submit" value="Call" onclick="callAction('+marker.phone+')"><i class="fa fa-phone"></i> Llamar</button>'+
@@ -84,7 +95,7 @@ function addMarker(id,lat, lng, markerType, name, address, cellphone, phone, ace
         '</div>'
       );
       infoWindow.open(map, marker); 
-    }                      
+    }                     
   });
 
   google.maps.event.addListener(marker, 'mouseover', function() {
