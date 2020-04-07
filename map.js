@@ -109,7 +109,7 @@ function addMarker(id,lat, lng, markerType, name, address, cellphone, phone, ace
   });
 
   google.maps.event.addListener(marker, 'dragend', function(event) {
-    loadMapData({ lat: Number(event.latLng.lat().toFixed(6)) , lng: Number(event.latLng.lng().toFixed(6)) });
+    loadMapData({ lat: Number(event.latLng.lat().toFixed(6)) , lng: Number(event.latLng.lng().toFixed(6)) }, false);
   });
 
   marker.setMap(map);
