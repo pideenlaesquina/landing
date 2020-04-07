@@ -76,7 +76,6 @@ function addMarker(id,lat, lng, markerType, name, address, cellphone, phone, ace
   {
     infoWindow.setContent(
       '<div id="content">'+
-        '<h4 id="firstHeading" class="firstHeading">¡Arrastrame!</h4>'+
         '<p>Arrastra este cursor para cargar las tiendas cercanas</p>'+
       '</div>'
     );
