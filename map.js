@@ -3,7 +3,7 @@
 // or the browser does not support geolocation it will use https://ip-api.com/
 // service to locate you.
 
-var map, infoWindow, userpos, isCall, callnumber;
+var map, infoWindow, isCall, callnumber;
 
 /*
  * Creates the map centered to the user's location
@@ -18,7 +18,7 @@ async function initMap() {
 
   infoWindow = new google.maps.InfoWindow();
 
-  userPos = getUserPosition();
+  var userPos = getUserPosition();
   if(userPos)
   {
     loadMapData(userPos);
@@ -29,9 +29,12 @@ async function initMap() {
   }
 }
 
-async function loadMapData(pos)
+async function loadMapData(pos, initial=true)
 {
-  addMarker("user", pos.lat, pos.lng, "user", "Tu ubicación", null, null, null, null, true);
+  if(initial)
+  {
+    addMarker("user", pos.lat, pos.lng, "user", "Tu ubicación", null, null, null, null, true);
+  }
 
   map.panTo(pos);
   var stores = await getStores(pos);
