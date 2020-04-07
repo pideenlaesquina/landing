@@ -142,7 +142,7 @@ async function getInitialPosition()
 {
   var pos = {lat:4.603843 , lng: -74.062705};
   var ip = await fetch('https://api.ipify.org').then(response=>response.text()); 
-  pos = await fetch('http://ip-api.com/json/'+ip+'?fields=lat,lon').then(response=>response.json());
+  pos = await fetch('https://ip-api.com/json/'+ip+'?fields=lat,lon').then(response=>response.json());
   return {lat:parseFloat(pos.lat), lng:parseFloat(pos.lon)};
 }
 
