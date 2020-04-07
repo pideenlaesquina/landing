@@ -38,11 +38,8 @@ async function loadMapData(pos)
   map.panTo(pos);
   var stores = await getStores(pos);
 
-  console.log(stores);
-
   //TODO: issue#7 Agregar control que muestra mensaje "lo sentimos no hay tiendas cerca de tí, agrega la primera"
   for (var i = 0; i < stores.length; i++) {
-    console.log(stores[i])
     addMarker(stores[i].id, stores[i].lat, stores[i].lng, stores[i].type, stores[i].name, stores[i].address, stores[i].cellphone, stores[i].phone, stores[i].aceptsCreditCard);
   };
 }
