@@ -46,9 +46,16 @@ function loadMapData(pos)
 
 function addMarker(id,lat, lng, markerType, name, address, cellphone, phone, aceptsCreditCard, draggable=false)
 {
-  var icon_normal = './images/' + markerType + "_icon.svg";
-  var icon_hover = './images/' + markerType + "_icon_hover.svg";
-  var icon_selected = './images/' + markerType + "_icon_selected.svg";
+  var icon_normal = './images/store_icon.svg";
+  var icon_hover = './images/store_icon_hover.svg";
+  var icon_selected = './images/store_icon_selected.svg";
+
+  if (markerType != null)
+  {
+    icon_normal = './images/' + markerType + "_icon.svg";
+    icon_hover = './images/' + markerType + "_icon_hover.svg";
+    icon_selected = './images/' + markerType + "_icon_selected.svg";
+  }
 
   var marker = new google.maps.Marker({
       position: {lat:lat, lng:lng},
