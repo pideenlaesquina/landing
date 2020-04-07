@@ -8,11 +8,9 @@ var map, infoWindow, userpos, isCall, callnumber;
 /*
  * Creates the map centered to the user's location
  */ 
-function initMap() {
-  var pos = {lat:4.603843 , lng: -74.062705};
-
-  console.log(getInitialPosition());
-
+async function initMap() {
+  var pos = await getInitialPosition();
+  
   map = new google.maps.Map(document.getElementById('map'), {
     center: pos,
     zoom: 15,
@@ -132,7 +130,7 @@ async function getInitialPosition()
   var pos = {lat:4.603843 , lng: -74.062705};
   var ip = await fetch('https://api.ipify.org').then(response=>response.text()); 
   pos = await fetch('http://ip-api.com/json/'+ip+'?fields=lat,lon').then(response=>response.json());
-  return pos;
+  return {lat:parseFloat(pos.lat), lng:parseFloat(pos.lon)};
 }
 
 async function getStores(pos)
