@@ -15,7 +15,7 @@ function initMap() {
 
   map = new google.maps.Map(document.getElementById('map'), {
     center: pos,
-    zoom: 17,
+    zoom: 15,
   });
 
   infoWindow = new google.maps.InfoWindow();
@@ -31,15 +31,18 @@ function initMap() {
   }
 }
 
-function loadMapData(pos)
+async function loadMapData(pos)
 {
   addMarker("user", pos.lat, pos.lng, "user", "Tu ubicación", null, null, null, null, true);
 
   map.panTo(pos);
-  var stores = getStores(pos);
+  var stores = await getStores(pos);
+
+  console.log(stores);
 
   //TODO: issue#7 Agregar control que muestra mensaje "lo sentimos no hay tiendas cerca de tí, agrega la primera"
   for (var i = 0; i < stores.length; i++) {
+    console.log(stores[i])
     addMarker(stores[i].id, stores[i].lat, stores[i].lng, stores[i].type, stores[i].name, stores[i].address, stores[i].cellphone, stores[i].phone, stores[i].aceptsCreditCard);
   };
 }
@@ -52,9 +55,9 @@ function addMarker(id,lat, lng, markerType, name, address, cellphone, phone, ace
 
   if (markerType != null)
   {
-    icon_normal = './images/' + markerType + "_icon.svg";
-    icon_hover = './images/' + markerType + "_icon_hover.svg";
-    icon_selected = './images/' + markerType + "_icon_selected.svg";
+    icon_normal = './images/' + markerType.toLowerCase() + "_icon.svg";
+    icon_hover = './images/' + markerType.toLowerCase() + "_icon_hover.svg";
+    icon_selected = './images/' + markerType.toLowerCase() + "_icon_selected.svg";
   }
 
   var marker = new google.maps.Marker({
@@ -67,7 +70,7 @@ function addMarker(id,lat, lng, markerType, name, address, cellphone, phone, ace
       id:id,
       name:name,
       address:address,
-      type:markerType,
+      type:markerType.toLowerCase(),
       cellphone:cellphone,
       phone:phone,
       aceptsCreditCard: aceptsCreditCard
@@ -139,9 +142,9 @@ async function getInitialPosition()
 
 async function getStores(pos)
 {
-  var stores = await fetch('https://front-iota.now.sh/api/stores?lat='+ pos.lat +'&lng='+pos.lng).then(response=>response.json());
-
-  return stores;
+  let url = 'https://front-iota.now.sh/api/stores?lat='+ pos.lat +'&lng='+pos.lng
+  let stores = await fetch(url).then(response=>response.json());
+  return stores.stores;
   // return [
   //   {id:1, lat:4.729530, lng:-74.035120, type:"pharmacy", name:"Droguería SuperFarma", address:"Calle 151 # 13 -80", cellphone:"3124444444", phone:"5678990", aceptsCreditCard:true},
   //   {id:2, lat:4.730225, lng:-74.036091, type:"bakery", name:"Panadería buen pan", address:"Calle 151 # 13 -80", cellphone:"3124444444", phone:"5678990", aceptsCreditCard:false},
