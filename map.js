@@ -46,9 +46,9 @@ function loadMapData(pos)
 
 function addMarker(id,lat, lng, markerType, name, address, cellphone, phone, aceptsCreditCard, draggable=false)
 {
-  var icon_normal = './images/store_icon.svg";
-  var icon_hover = './images/store_icon_hover.svg";
-  var icon_selected = './images/store_icon_selected.svg";
+  var icon_normal = './images/store_icon.svg';
+  var icon_hover = './images/store_icon_hover.svg';
+  var icon_selected = './images/store_icon_selected.svg';
 
   if (markerType != null)
   {
@@ -137,15 +137,17 @@ async function getInitialPosition()
   return pos;
 }
 
-function getStores(pos)
+async function getStores(pos)
 {
-  //TODO issue#8 Fetch stores near position
-  return [
-    {id:1, lat:4.729530, lng:-74.035120, type:"pharmacy", name:"Droguería SuperFarma", address:"Calle 151 # 13 -80", cellphone:"3124444444", phone:"5678990", aceptsCreditCard:true},
-    {id:2, lat:4.730225, lng:-74.036091, type:"bakery", name:"Panadería buen pan", address:"Calle 151 # 13 -80", cellphone:"3124444444", phone:"5678990", aceptsCreditCard:false},
-    {id:3, lat:4.730308, lng:-74.036815, type:"minimarket", name:"Vennetodo", address:"Calle 151 # 13 -80", cellphone:"3124444444", phone:"5678990", aceptsCreditCard:false},
-    {id:4, lat:4.730741, lng:-74.037866, type:"butchery", name:"Carnes el Cedro", address:"Calle 151 # 13 -80", cellphone:"3124444444", phone:"5678990", aceptsCreditCard:true}
-  ];
+  var stores = await fetch('https://front-iota.now.sh/api/stores?lat='+ pos.lat +'&lng='+pos.lng).then(response=>response.json());
+
+  return stores;
+  // return [
+  //   {id:1, lat:4.729530, lng:-74.035120, type:"pharmacy", name:"Droguería SuperFarma", address:"Calle 151 # 13 -80", cellphone:"3124444444", phone:"5678990", aceptsCreditCard:true},
+  //   {id:2, lat:4.730225, lng:-74.036091, type:"bakery", name:"Panadería buen pan", address:"Calle 151 # 13 -80", cellphone:"3124444444", phone:"5678990", aceptsCreditCard:false},
+  //   {id:3, lat:4.730308, lng:-74.036815, type:"minimarket", name:"Vennetodo", address:"Calle 151 # 13 -80", cellphone:"3124444444", phone:"5678990", aceptsCreditCard:false},
+  //   {id:4, lat:4.730741, lng:-74.037866, type:"butchery", name:"Carnes el Cedro", address:"Calle 151 # 13 -80", cellphone:"3124444444", phone:"5678990", aceptsCreditCard:true}
+  // ];
 }
 
 
