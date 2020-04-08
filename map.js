@@ -142,8 +142,8 @@ async function getInitialPosition()
 {
   var pos = {lat:4.603843 , lng: -74.062705};
   var ip = await fetch('https://api.ipify.org').then(response=>response.text()); 
-  pos = await fetch('https://ip-api.com/json/'+ip+'?fields=lat,lon').then(response=>response.json());
-  return {lat:parseFloat(pos.lat), lng:parseFloat(pos.lon)};
+  pos = await fetch('https://api.ipgeolocation.io/ipgeo?apiKey=02ff42e6f29c453e8d60df6139f5f9ed&ip='+ip).then(response=>response.json());
+  return {lat:parseFloat(pos.latitude), lng:parseFloat(pos.longitude)};
 }
 
 async function getStores(pos)
@@ -151,12 +151,6 @@ async function getStores(pos)
   let url = 'https://front-iota.now.sh/api/stores?lat='+ pos.lat +'&lng='+pos.lng
   let stores = await fetch(url).then(response=>response.json());
   return stores.stores;
-  // return [
-  //   {id:1, lat:4.729530, lng:-74.035120, type:"pharmacy", name:"Droguería SuperFarma", address:"Calle 151 # 13 -80", cellphone:"3124444444", phone:"5678990", aceptsCreditCard:true},
-  //   {id:2, lat:4.730225, lng:-74.036091, type:"bakery", name:"Panadería buen pan", address:"Calle 151 # 13 -80", cellphone:"3124444444", phone:"5678990", aceptsCreditCard:false},
-  //   {id:3, lat:4.730308, lng:-74.036815, type:"minimarket", name:"Vennetodo", address:"Calle 151 # 13 -80", cellphone:"3124444444", phone:"5678990", aceptsCreditCard:false},
-  //   {id:4, lat:4.730741, lng:-74.037866, type:"butchery", name:"Carnes el Cedro", address:"Calle 151 # 13 -80", cellphone:"3124444444", phone:"5678990", aceptsCreditCard:true}
-  // ];
 }
 
 
