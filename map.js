@@ -50,11 +50,11 @@ function addMarker(id,lat, lng, markerType, name, address, cellphone, phone, ace
   var icon_normal = './images/store_icon.svg';
   var icon_hover = './images/store_icon_hover.svg';
 
-  if (markerType != null)
-  {
-    icon_normal = './images/' + markerType.toLowerCase() + "_icon.svg";
-    icon_hover = './images/' + markerType.toLowerCase() + "_icon_hover.svg";
-  }
+  // if (markerType != null)
+  // {
+  //   icon_normal = './images/' + markerType.toLowerCase() + "_icon.svg";
+  //   icon_hover = './images/' + markerType.toLowerCase() + "_icon_hover.svg";
+  // }
 
   var marker = new google.maps.Marker({
       position: {lat:lat, lng:lng},
@@ -66,7 +66,7 @@ function addMarker(id,lat, lng, markerType, name, address, cellphone, phone, ace
       id:id,
       name:name,
       address:address,
-      type:markerType.toLowerCase(),
+      type:(markerType?markerType.toLowerCase():null),
       cellphone:cellphone,
       phone:phone,
       aceptsCreditCard: aceptsCreditCard
